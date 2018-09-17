@@ -3,12 +3,14 @@
   <div class="page-header-image" style="background-image:url(assets/img/login.jpg)"></div>
   <div class="container">
       <div class="col-md-4 content-center">
-          <div class="card card-login card-plain">
+          <div class="card card-plain">
             <div *ngIf="afAuth.user | async as user; else showLogin">
               <h1>Hello {{ user.displayName }}!</h1>
               <button (click)="logout()">Logout</button>
             </div>
+          </div>
             <ng-template #showLogin>
+                    <div class="card card-login card-plain">
               <div class="form" method="" action="">
                   <div class="header header-primary text-center">
                       <div class="logo-container">
@@ -38,20 +40,19 @@
                       </button>
                     </div>
                   </div>
-                  <div class="pull-left">
+                  <!-- <div class="pull-left">
                       <h6>
                           <a href="#pablo" class="link">Create Account</a>
                       </h6>
-                  </div>
-                  <div class="pull-right">
+                  </div> -->
+                  <!-- <div class="pull-center">
                       <h6>
                           <a href="#pablo" class="link">Forgot your password?</a>
                       </h6>
-                  </div>
+                  </div> -->
+                </div>
                 </div>
               </ng-template>
           </div>
       </div>
   </div>
-  
-</div>
