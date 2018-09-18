@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Rellax from 'rellax';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,9 @@ export class ProfileComponent implements OnInit {
     focus;
     focus1;
 
-    constructor() { }
+    constructor(
+      public auth: AuthService
+    ) { }
 
     ngOnInit() {
       var rellaxHeader = new Rellax('.rellax-header');

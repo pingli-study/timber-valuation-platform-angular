@@ -14,17 +14,21 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { LoginModule } from "./login/login.module";
+import { CoreModule } from "./core/core.module";
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { AuthGuard } from './core/auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
-        FooterComponent
+        FooterComponent,
+        UserProfileComponent,
     ],
     imports: [
         BrowserAnimationsModule,
@@ -33,15 +37,16 @@ import { FooterComponent } from './shared/footer/footer.component';
         RouterModule,
         AppRoutingModule,
         ComponentsModule,
+        CoreModule,
         ExamplesModule,
         LoginModule,
         BrowserModule,
-        AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
+        AngularFireModule.initializeApp(environment.firebase, 'timber-eveluation-platform'), // imports firebase/app needed for everything
         AngularFirestoreModule, // imports firebase/firestore, only needed for database features
         AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
         AngularFireStorageModule
     ],
-    providers: [],
+    providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

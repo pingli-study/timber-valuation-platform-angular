@@ -6,7 +6,8 @@
           <div class="card card-plain">
             <div *ngIf="afAuth.user | async as user; else showLogin">
               <h1>Hello {{ user.displayName }}!</h1>
-              <button (click)="logout()">Logout</button>
+              <button class="btn btn-round btn-lg" (click)="auth.signOut()">Logout</button>
+              <button class="btn btn-primary btn-round btn-lg" routerLink="/profile">Continue</button>
             </div>
           </div>
             <ng-template #showLogin>
@@ -35,7 +36,7 @@
                     <button class="btn btn-primary btn-round btn-lg btn-block">Login</button>
                     &nbsp;
                     <div class="social-line">
-                      <button class="btn btn-neutral btn-google btn-icon btn-round" href="#pablo" (click)=login()>
+                      <button class="btn btn-neutral btn-google btn-icon btn-round" href="#pablo" (click)="auth.googleLogin()">
                         <i class="fa fa-google-plus"></i>
                       </button>
                     </div>

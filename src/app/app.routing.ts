@@ -8,15 +8,20 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent } from "./login/login/login.component";
 import { ProfileComponent } from './examples/profile/profile.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { AuthGuard } from './core/auth.guard';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RegisterComponent } from "./login/register/register.component";
 
 const routes: Routes =[
     { path: '', redirectTo: 'index', pathMatch: 'full' },
-    { path: 'index',                component: ComponentsComponent },
+    { path: 'index',                component: ComponentsComponent, canActivate: [AuthGuard] },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
     { path: 'examples/landing',     component: LandingComponent },
     // { path: 'examples/login',       component: LoginComponent },
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'login',                component: LoginComponent },
+    { path: 'profile',              component: ProfileComponent },
+    { path: 'register',             component: RegisterComponent }
 ];
 
 @NgModule({

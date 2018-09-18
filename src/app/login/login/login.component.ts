@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase";
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,9 @@ export class LoginComponent implements OnInit {
     focus;
     focus1;
 
-    constructor(public afAuth: AngularFireAuth) { }
+    constructor(
+        public afAuth: AngularFireAuth,
+        public auth: AuthService) { }
 
     ngOnInit() {
         var body = document.getElementsByTagName('body')[0];
@@ -29,12 +31,5 @@ export class LoginComponent implements OnInit {
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
     }
-
-    login() {
-        this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-      }
-      logout() {
-        this.afAuth.auth.signOut();
-      }
 
 }
