@@ -1,3 +1,5 @@
+import { AuthService } from './core/auth.service';
+import { PriceListService } from './price-list.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,6 +23,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AuthGuard } from './core/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PriceListComponent } from './price-list/price-list.component';
+import { PriceListFormComponent } from './price-list/price-list-form/price-list-form.component';
 
 
 @NgModule({
@@ -29,6 +33,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         NavbarComponent,
         FooterComponent,
         UserProfileComponent,
+        PriceListComponent,
+        PriceListFormComponent,
     ],
     imports: [
         BrowserAnimationsModule,
@@ -46,7 +52,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
         AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
         AngularFireStorageModule
     ],
-    providers: [AuthGuard],
+    providers: [
+        AuthService,
+        AuthGuard,
+        PriceListService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
