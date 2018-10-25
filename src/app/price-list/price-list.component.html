@@ -20,7 +20,8 @@
         <select ngModel name="priceListMethod" id="price-listMethod" (change)="selected($event)" class="form-control" style="width: 350px; margin-bottom: 10px;">
             <option *ngFor="let method of priceListMethods" [value]="method.id">{{ method.name }}</option>
         </select>
-        <button class="btn btn-primary btn-round" (click)="toggleShow()">Load</button>
+        <button class="btn btn-primary btn-round" style="margin-right: 20px;" (click)="toggleShow()">Load</button>
+        <button class="btn btn-success btn-round" routerLink="/price-list/price-list-form">New</button>
     </div>
     
     <div class="col-md-8" style="margin-top: 30px; margin-bottom: 50px; margin-left: 50px;">
