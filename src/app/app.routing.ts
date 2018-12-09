@@ -1,3 +1,5 @@
+import { PriceListComponent } from './price-list/price-list.component';
+import { PriceListFormComponent } from './price-list/price-list-form/price-list-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
@@ -21,6 +23,8 @@ const routes: Routes =[
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'login',                component: LoginComponent },
     { path: 'profile',              component: ProfileComponent },
+    { path: 'price-list',           component: PriceListComponent },
+    { path: 'price-list/price-list-form',      component: PriceListFormComponent },
     { path: 'register',             component: RegisterComponent }
 ];
 
