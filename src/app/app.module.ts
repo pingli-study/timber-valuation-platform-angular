@@ -1,5 +1,6 @@
 import { AuthService } from './core/auth.service';
 import { PriceListService } from './price-list.service';
+import { PriceListFormService } from './price-list-form.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { AuthGuard } from './core/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PriceListComponent } from './price-list/price-list.component';
 import { PriceListFormComponent } from './price-list/price-list-form/price-list-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -50,12 +52,15 @@ import { PriceListFormComponent } from './price-list/price-list-form/price-list-
         AngularFireModule.initializeApp(environment.firebase, 'timber-eveluation-platform'), // imports firebase/app needed for everything
         AngularFirestoreModule, // imports firebase/firestore, only needed for database features
         AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-        AngularFireStorageModule
+        AngularFireStorageModule, // imports firebase/storage only needed for storage features
+        ReactiveFormsModule
+
     ],
     providers: [
         AuthService,
         AuthGuard,
-        PriceListService
+        PriceListService,
+        PriceListFormService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,21 +1,27 @@
 import { PriceListService } from './../price-list.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-price-list',
   templateUrl: './price-list.component.html',
   styleUrls: ['./price-list.component.scss']
 })
-export class PriceListComponent implements OnInit {
-  //priceList$;
+export class PriceListComponent implements OnInit {  
+
+  private priceList: Observable<any[]>;
+  
   show;
   show1 = false;
   show2 = false;
+  
+   constructor(private db: AngularFirestore) { }
 
-  //constructor(private PriceListService: PriceListService) {
-  //  this.priceList$ = this.PriceListService.getAll();
-   // }
+  create(values){
+    //return this.db.list<priceList>('/priceList').valueChanges().push(values);
+  }
 
   priceListMethods = [
     { id: 1, name: 'Teak - Super Luxury Class - Both Non RCT and RCT (Felled volume basis)'},
